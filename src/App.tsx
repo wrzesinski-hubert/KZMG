@@ -20,7 +20,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 type Screen = "landing" | "players" | "games" | "entry" | "finish";
-type GameMode = "round_robin" | "high_score";
+type GameMode = "round_robin" | "high_score" | "xd";
 
 type Player = {
   id: string;
