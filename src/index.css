@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+
+:root {
+  font-family: "VT323", "Consolas", monospace;
+  line-height: 1.35;
+  font-weight: 400;
+  color: #e8f8ff;
+  background-color: #060d1f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100svh;
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(255, 79, 216, 0.16),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 82% 10%,
+      rgba(73, 246, 255, 0.14),
+      transparent 34%
+    ),
+    linear-gradient(180deg, #060d1f, #08152b 44%, #050b18);
+  letter-spacing: 0.02em;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03) 0,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: soft-light;
+  z-index: 999;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Press Start 2P", monospace;
+  color: #eef8ff;
+}
+
+p {
+  margin: 0;
+}

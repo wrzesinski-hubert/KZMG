@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#09253a"/>
+      <stop offset="1" stop-color="#0c766f"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#g)"/>
+  <rect x="469" y="0" width="22" height="540" fill="#d9f5ff" opacity="0.28"/>
+  <rect x="72" y="190" width="26" height="160" rx="10" fill="#f6a33f"/>
+  <rect x="862" y="210" width="26" height="160" rx="10" fill="#f6a33f"/>
+  <circle cx="470" cy="250" r="20" fill="#ffffff"/>
+  <text x="60" y="492" font-family="Segoe UI, sans-serif" font-size="74" fill="#ffffff" opacity="0.92">PONG</text>
+</svg>
