@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2d0f3a"/>
+      <stop offset="1" stop-color="#12486f"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#g)"/>
+  <rect x="120" y="90" width="720" height="360" rx="28" fill="none" stroke="#7de4ff" stroke-width="8" opacity="0.7"/>
+  <circle cx="240" cy="180" r="26" fill="#ff7f5a"/>
+  <circle cx="720" cy="360" r="26" fill="#ffe077"/>
+  <circle cx="380" cy="290" r="26" fill="#8cffbb"/>
+  <circle cx="590" cy="210" r="26" fill="#92b0ff"/>
+  <text x="60" y="492" font-family="Segoe UI, sans-serif" font-size="66" fill="#f4edff" opacity="0.95">DODGE 'EM</text>
+</svg>
