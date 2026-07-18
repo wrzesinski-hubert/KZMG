@@ -1172,7 +1172,6 @@ function App() {
       <section className="view view-entry">
         <div className="section-head">
           <div>
-            <p className="kicker">Krok 3</p>
             <h2>{selectedGame.name}</h2>
           </div>
           <button
