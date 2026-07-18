@@ -231,27 +231,27 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     description: "Najwyższy wynik",
     cover: `${import.meta.env.BASE_URL}covers/asteroids2.gif`,
   },
-  {
-    id: "flag-capture",
-    name: "Flag Capture",
-    mode: "round_robin",
-    description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/flag_capture2.gif`,
-  },
-  {
-    id: "tennis",
-    name: "Tennis",
-    mode: "round_robin",
-    description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/tennis2.gif`,
-  },
-  {
-    id: "maze-craze",
-    name: "Maze Craze",
-    mode: "round_robin",
-    description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/maze-craze2.jpg`,
-  },
+  // {
+  //   id: "flag-capture",
+  //   name: "Flag Capture",
+  //   mode: "round_robin",
+  //   description: "Każdy z każdym",
+  //   cover: `${import.meta.env.BASE_URL}covers/flag_capture2.gif`,
+  // },
+  // {
+  //   id: "tennis",
+  //   name: "Tennis",
+  //   mode: "round_robin",
+  //   description: "Każdy z każdym",
+  //   cover: `${import.meta.env.BASE_URL}covers/tennis2.gif`,
+  // },
+  // {
+  //   id: "maze-craze",
+  //   name: "Maze Craze",
+  //   mode: "round_robin",
+  //   description: "Każdy z każdym",
+  //   cover: `${import.meta.env.BASE_URL}covers/maze-craze2.jpg`,
+  // },
 ];
 
 const createDefaultPlayers = (count: number): Player[] =>
