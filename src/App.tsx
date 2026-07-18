@@ -218,11 +218,11 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     cover: `${import.meta.env.BASE_URL}covers/dodge_em2.gif`,
   },
   {
-    id: "volleyball",
-    name: "Volleyball",
-    mode: "round_robin",
-    description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/volleyball2.gif`,
+    id: "centipide",
+    name: "Centipide",
+    mode: "high_score",
+    description: "Najwyższy wynik",
+    cover: `${import.meta.env.BASE_URL}covers/centipede.gif`,
   },
   {
     id: "asteroids",
