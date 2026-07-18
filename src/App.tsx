@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
   faArrowRight,
-  faBars,
   faCheck,
   faFlagCheckered,
   faGamepad,
@@ -202,56 +201,56 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     name: "PONG",
     mode: "round_robin",
     description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/pong.svg`,
+    cover: `${import.meta.env.BASE_URL}covers/pong2.png`,
   },
   {
     id: "basketball",
     name: "Basketball",
     mode: "round_robin",
     description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/basketball.svg`,
+    cover: `${import.meta.env.BASE_URL}covers/basketball2.png`,
   },
   {
     id: "dodge-em",
     name: "Dodge 'Em",
     mode: "high_score",
     description: "Najwyższy wynik",
-    cover: `${import.meta.env.BASE_URL}covers/dodge-em.svg`,
+    cover: `${import.meta.env.BASE_URL}covers/dodge_em2.gif`,
   },
   {
     id: "volleyball",
     name: "Volleyball",
     mode: "round_robin",
     description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/volleyball.svg`,
+    cover: `${import.meta.env.BASE_URL}covers/volleyball2.gif`,
   },
   {
     id: "asteroids",
     name: "Asteroids",
     mode: "high_score",
     description: "Najwyższy wynik",
-    cover: `${import.meta.env.BASE_URL}covers/asteroids.svg`,
+    cover: `${import.meta.env.BASE_URL}covers/asteroids2.gif`,
   },
   {
     id: "flag-capture",
     name: "Flag Capture",
     mode: "round_robin",
     description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/flag-capture.svg`,
+    cover: `${import.meta.env.BASE_URL}covers/flag_capture2.gif`,
   },
   {
     id: "tennis",
     name: "Tennis",
     mode: "round_robin",
     description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/tennis.svg`,
+    cover: `${import.meta.env.BASE_URL}covers/tennis2.gif`,
   },
   {
     id: "maze-craze",
     name: "Maze Craze",
     mode: "round_robin",
     description: "Każdy z każdym",
-    cover: `${import.meta.env.BASE_URL}covers/maze-craze.svg`,
+    cover: `${import.meta.env.BASE_URL}covers/maze-craze2.jpg`,
   },
 ];
 
@@ -766,30 +765,6 @@ function App() {
     });
   };
 
-  const adjustRoundRobinScore = (
-    gameId: string,
-    matchKey: string,
-    side: "scoreA" | "scoreB",
-    delta: number,
-  ) => {
-    const gameResult = state.gameResults[gameId];
-    const match =
-      gameResult && gameResult.mode === "round_robin"
-        ? gameResult.matches[matchKey]
-        : undefined;
-
-    const currentA = Math.max(0, Number(match?.scoreA ?? 0) || 0);
-    const currentB = Math.max(0, Number(match?.scoreB ?? 0) || 0);
-
-    const nextA = side === "scoreA" ? Math.max(0, currentA + delta) : currentA;
-    const nextB = side === "scoreB" ? Math.max(0, currentB + delta) : currentB;
-
-    setRoundRobinMatch(gameId, matchKey, {
-      scoreA: String(nextA),
-      scoreB: String(nextB),
-    });
-  };
-
   const setHighScore = (gameId: string, playerId: string, score: string) => {
     setState((current) => {
       const previousResult = current.gameResults[gameId];
@@ -1199,7 +1174,6 @@ function App() {
           <div>
             <p className="kicker">Krok 3</p>
             <h2>{selectedGame.name}</h2>
-            <p className="mode-label">Tryb: {selectedGame.description}</p>
           </div>
           <button
             type="button"
@@ -1239,15 +1213,6 @@ function App() {
                 result && result.mode === "round_robin"
                   ? result.matches[activePair.key]
                   : undefined;
-              const activeScoreA = Math.max(
-                0,
-                Number(activeInput?.scoreA ?? 0) || 0,
-              );
-              const activeScoreB = Math.max(
-                0,
-                Number(activeInput?.scoreB ?? 0) || 0,
-              );
-
               const waitingPairs = roundRobinPairs.filter(
                 (pair) => pair.key !== activePair.key,
               );
@@ -1277,65 +1242,61 @@ function App() {
                     </div>
 
                     <div className="rr-score-box duel-center">
-                      <button
-                        type="button"
-                        className="score-button score-button-large"
-                        title="Lewy klik: +1, Prawy klik: -1"
-                        onClick={() =>
-                          adjustRoundRobinScore(
-                            selectedGame.id,
-                            activePair.key,
-                            "scoreA",
-                            1,
-                          )
-                        }
-                        onContextMenu={(event) => {
-                          event.preventDefault();
-                          adjustRoundRobinScore(
-                            selectedGame.id,
-                            activePair.key,
-                            "scoreA",
-                            -1,
-                          );
+                      <input
+                        className="score-number-input rr-score-input"
+                        type="number"
+                        inputMode="numeric"
+                        min={0}
+                        step={1}
+                        value={activeInput?.scoreA ?? ""}
+                        placeholder="0"
+                        aria-label="Wynik gracza A"
+                        onKeyDown={(event) => {
+                          if (
+                            event.key === "e" ||
+                            event.key === "E" ||
+                            event.key === "+" ||
+                            event.key === "-"
+                          ) {
+                            event.preventDefault();
+                          }
                         }}
-                      >
-                        <span
-                          key={`${activePair.key}-scoreA-${activeScoreA}`}
-                          className="score-pop"
-                        >
-                          {activeScoreA}
-                        </span>
-                      </button>
-                      <span>:</span>
-                      <button
-                        type="button"
-                        className="score-button score-button-large"
-                        title="Lewy klik: +1, Prawy klik: -1"
-                        onClick={() =>
-                          adjustRoundRobinScore(
-                            selectedGame.id,
-                            activePair.key,
-                            "scoreB",
-                            1,
-                          )
+                        onChange={(event) =>
+                          setRoundRobinMatch(selectedGame.id, activePair.key, {
+                            scoreA: event.target.value,
+                            scoreB: activeInput?.scoreB ?? "",
+                          })
                         }
-                        onContextMenu={(event) => {
-                          event.preventDefault();
-                          adjustRoundRobinScore(
-                            selectedGame.id,
-                            activePair.key,
-                            "scoreB",
-                            -1,
-                          );
+                      />
+
+                      <span className="score-separator">:</span>
+
+                      <input
+                        className="score-number-input rr-score-input"
+                        type="number"
+                        inputMode="numeric"
+                        min={0}
+                        step={1}
+                        value={activeInput?.scoreB ?? ""}
+                        placeholder="0"
+                        aria-label="Wynik gracza B"
+                        onKeyDown={(event) => {
+                          if (
+                            event.key === "e" ||
+                            event.key === "E" ||
+                            event.key === "+" ||
+                            event.key === "-"
+                          ) {
+                            event.preventDefault();
+                          }
                         }}
-                      >
-                        <span
-                          key={`${activePair.key}-scoreB-${activeScoreB}`}
-                          className="score-pop"
-                        >
-                          {activeScoreB}
-                        </span>
-                      </button>
+                        onChange={(event) =>
+                          setRoundRobinMatch(selectedGame.id, activePair.key, {
+                            scoreA: activeInput?.scoreA ?? "",
+                            scoreB: event.target.value,
+                          })
+                        }
+                      />
                     </div>
 
                     <div className="rr-player-block duel-right">
@@ -1358,10 +1319,6 @@ function App() {
                   </div>
 
                   <div className="rr-queue-wrap">
-                    <p>
-                      <FontAwesomeIcon icon={faBars} />
-                      Kolejka
-                    </p>
                     <div className="rr-queue-grid">
                       {waitingPairs.map((pair) => {
                         const queueInput =
@@ -1521,10 +1478,6 @@ function App() {
                   </div>
 
                   <div className="hs-queue-wrap">
-                    <p>
-                      <FontAwesomeIcon icon={faBars} />
-                      Kolejka
-                    </p>
                     <div className="hs-queue-grid">
                       {waitingPlayers.map((player) => {
                         const score =

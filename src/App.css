@@ -325,11 +325,6 @@ h3 {
   border-color: #78e8ff;
 }
 
-.mode-label {
-  margin-top: 10px;
-  color: var(--muted);
-}
-
 .view-finish {
   animation:
     reveal 260ms ease,
@@ -676,8 +671,8 @@ h3 {
 }
 
 .rr-active-avatar {
-  width: 126px;
-  height: 126px;
+  width: 154px;
+  height: 154px;
   border-radius: 12px;
   overflow: hidden;
   border: 3px solid #7cefff;
@@ -699,10 +694,23 @@ h3 {
 .rr-score-box {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   color: var(--gold);
   font-family: "Press Start 2P", monospace;
   font-size: 1.18rem;
+}
+
+.rr-score-input {
+  max-width: 108px;
+  min-height: 60px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.score-separator {
+  display: inline-grid;
+  place-items: center;
+  min-width: 16px;
 }
 
 .versus-row {
@@ -758,16 +766,6 @@ h3 {
 .hs-queue-wrap {
   display: grid;
   gap: 8px;
-}
-
-.rr-queue-wrap p,
-.hs-queue-wrap p {
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--muted);
-  font-size: 0.9rem;
 }
 
 .rr-queue-grid,
@@ -1585,11 +1583,22 @@ input:focus-visible {
 
   .rr-score-box {
     order: -1;
+    flex-wrap: nowrap;
+    justify-content: center;
+    column-gap: 8px;
+    row-gap: 0;
+  }
+
+  .rr-score-input {
+    max-width: 84px;
+    min-height: 46px;
+    font-size: 0.92rem;
+    padding: 8px 8px;
   }
 
   .rr-active-avatar {
-    width: 74px;
-    height: 74px;
+    width: 94px;
+    height: 94px;
   }
 
   .score-button-large {
